@@ -7,44 +7,39 @@
 #include "FPSCharacter.h"
 
 // Sets default values
-AFPSObjectiveActor::AFPSObjectiveActor()
-{
+AFPSObjectiveActor::AFPSObjectiveActor() {
     MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComp"));
-	MeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-	RootComponent = MeshComp;
-	
+    MeshComp -> SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    RootComponent = MeshComp;
+
     SphereComp = CreateDefaultSubobject<USphereComponent>(TEXT("SpehereComp"));
-	SphereComp->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
-	SphereComp->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
-	SphereComp->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
-	SphereComp->SetupAttachment(MeshComp);
+    SphereComp -> SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+    SphereComp -> SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+    SphereComp -> SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
+    SphereComp -> SetupAttachment(MeshComp);
 }
 
 // Called when the game starts or when spawned
-void AFPSObjectiveActor::BeginPlay()
-{
-	Super::BeginPlay();
+void AFPSObjectiveActor::BeginPlay() {
+    Super::BeginPlay();
 
-	PlayEffects();
+    PlayEffects();
 }
 
-void AFPSObjectiveActor::PlayEffects()
-{
-	UGameplayStatics::SpawnEmitterAtLocation(this, PickupFX, GetActorLocation());
+void AFPSObjectiveActor::PlayEffects() {
+    UGameplayStatics::SpawnEmitterAtLocation(this, PickupFX, GetActorLocation());
 }
 
-void AFPSObjectiveActor::NotifyActorBeginOverlap(AActor* OtherActor)
-{
-	Super::NotifyActorBeginOverlap(OtherActor);
+void AFPSObjectiveActor::NotifyActorBeginOverlap(AActor * OtherActor) {
+    Super::NotifyActorBeginOverlap(OtherActor);
 
-	PlayEffects();
+    PlayEffects();
 
-	AFPSCharacter* MyCharacter = Cast<AFPSCharacter>(OtherActor);
+    AFPSCharacter * MyCharacter = Cast<AFPSCharacter>(OtherActor);
 
-	if(MyCharacter)
-	{
-		MyCharacter->bIsCarryingObjective = true;
+    if (MyCharacter) {
+        MyCharacter -> bIsCarryingObjective = true;
 
-		Destroy();
-	}
+        Destroy();
+    }
 }

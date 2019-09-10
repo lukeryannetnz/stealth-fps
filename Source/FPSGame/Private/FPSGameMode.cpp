@@ -5,12 +5,10 @@
 #include "FPSCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 
-AFPSGameMode::AFPSGameMode()
-{
-	// set default pawn class to our Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnClassFinder(TEXT("/Game/Blueprints/BP_Player"));
-	DefaultPawnClass = PlayerPawnClassFinder.Class;
+AFPSGameMode::AFPSGameMode() { // set default pawn class to our Blueprinted character
+    static ConstructorHelpers::FClassFinder<APawn> PlayerPawnClassFinder(TEXT("/Game/Blueprints/BP_Player"));
+    DefaultPawnClass = PlayerPawnClassFinder.Class;
 
-	// use our custom HUD class
-	HUDClass = AFPSHUD::StaticClass();
+    // use our custom HUD class
+    HUDClass = AFPSHUD::StaticClass();
 }

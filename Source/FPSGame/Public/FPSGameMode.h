@@ -7,14 +7,8 @@
 #include "FPSGameMode.generated.h"
 
 UCLASS()
-class AFPSGameMode : public AGameModeBase
-{
-	GENERATED_BODY()
+class AFPSGameMode: public AGameModeBase {
+    GENERATED_BODY()
 
-public:
-
-	AFPSGameMode();
+    public : AFPSGameMode();
 };
-
-
-

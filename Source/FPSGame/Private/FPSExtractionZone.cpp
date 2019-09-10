@@ -9,14 +9,14 @@
 // Sets default values
 AFPSExtractionZone::AFPSExtractionZone() {
     OverlapComp = CreateDefaultSubobject<UBoxComponent>(TEXT("OverlapComp"));
-    OverlapComp -> SetCollisionEnabled(ECollisionEnabled::QueryOnly);
-    OverlapComp -> SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
-    OverlapComp -> SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
-    OverlapComp -> SetBoxExtent(FVector(200.0 F));
+    OverlapComp - > SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+    OverlapComp - > SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Ignore);
+    OverlapComp - > SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Overlap);
+    OverlapComp - > SetBoxExtent(FVector(200.0 F));
     RootComponent = OverlapComp;
 
-    OverlapComp -> SetHiddenInGame(false);
-    OverlapComp -> OnComponentBeginOverlap.AddDynamic(this, & AFPSExtractionZone::HandleOverlap);
+    OverlapComp - > SetHiddenInGame(false);
+    OverlapComp - > OnComponentBeginOverlap.AddDynamic(this, & AFPSExtractionZone::HandleOverlap);
 }
 
 void AFPSExtractionZone::HandleOverlap(UPrimitiveComponent * OverlappedComponent, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult) {

@@ -12,21 +12,19 @@ class UPrimitiveComponent;
 struct FHitResult;
 
 UCLASS()
-class FPSGAME_API AFPSExtractionZone : public AActor
-{
-	GENERATED_BODY()
-	
-public:	
-	// Sets default values for this actor's properties
-	AFPSExtractionZone();
+class FPSGAME_API AFPSExtractionZone : public AActor {
+    GENERATED_BODY()
 
-protected:
-	UPROPERTY(VisibleAnywhere, Category = "Components")
-	UBoxComponent* OverlapComp;
+    public :
+    // Sets default values for this actor's properties
+    AFPSExtractionZone();
 
-	UFUNCTION()
-	void HandleOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+    protected : UPROPERTY(VisibleAnywhere, Category = "Components")
+    UBoxComponent * OverlapComp;
 
-public:	
-	
+    UFUNCTION()
+    void HandleOverlap(UPrimitiveComponent * OverlappedComponent, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+
+    public :
+
 };

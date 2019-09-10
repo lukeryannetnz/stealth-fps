@@ -12,32 +12,34 @@ class USphereComponent;
 
 
 UCLASS()
-class AFPSProjectile : public AActor
-{
-	GENERATED_BODY()
+class AFPSProjectile: public AActor {
+    GENERATED_BODY()
 
-protected:
+    protected :
 
-	/** Sphere collision component */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category= "Projectile")
-	USphereComponent* CollisionComp;
+    /** Sphere collision component */
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Projectile")
+    USphereComponent * CollisionComp;
 
-	/** Projectile movement component */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
-	UProjectileMovementComponent* ProjectileMovement;
+    /** Projectile movement component */
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Movement")
+    UProjectileMovementComponent * ProjectileMovement;
 
-public:
+    public : AFPSProjectile();
 
-	AFPSProjectile();
+    /** called when projectile hits something */
+    UFUNCTION()
+    void OnHit(UPrimitiveComponent * HitComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, FVector NormalImpulse, const FHitResult & Hit);
 
-	/** called when projectile hits something */
-	UFUNCTION()
-	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+    /** Returns CollisionComp subobject **/
+    USphereComponent * GetCollisionComp()
+    const {
+        return CollisionComp;
+    }
 
-	/** Returns CollisionComp subobject **/
-	USphereComponent* GetCollisionComp() const { return CollisionComp; }
-
-	/** Returns ProjectileMovement subobject **/
-	UProjectileMovementComponent* GetProjectileMovement() const { return ProjectileMovement; }
+    /** Returns ProjectileMovement subobject **/
+    UProjectileMovementComponent * GetProjectileMovement()
+    const {
+        return ProjectileMovement;
+    }
 };
-

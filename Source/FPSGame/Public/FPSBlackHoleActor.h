@@ -12,31 +12,30 @@ class UPrimitiveComponent;
 struct FHitResult;
 
 UCLASS()
-class FPSGAME_API AFPSBlackHoleActor : public AActor
-{
-	GENERATED_BODY()
-	
-public:	
-	// Sets default values for this actor's properties
-	AFPSBlackHoleActor();
+class FPSGAME_API AFPSBlackHoleActor : public AActor {
+    GENERATED_BODY()
 
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+    public :
+    // Sets default values for this actor's properties
+    AFPSBlackHoleActor();
 
-	UPROPERTY(VisibleAnywhere, Category = "Components")
-    UStaticMeshComponent* MeshComp;
-    
-	UPROPERTY(VisibleAnywhere, Category = "Components")
-    USphereComponent* PhysicsSphereComp;
+    protected :
+    // Called when the game starts or when spawned
+    virtual void BeginPlay()override;
 
-	UPROPERTY(VisibleAnywhere, Category = "Components")
-    USphereComponent* DestroyerSphereComp;
+    UPROPERTY(VisibleAnywhere, Category = "Components")
+    UStaticMeshComponent * MeshComp;
 
-	UFUNCTION()
-	void DestroyerSphereBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+    UPROPERTY(VisibleAnywhere, Category = "Components")
+    USphereComponent * PhysicsSphereComp;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+    UPROPERTY(VisibleAnywhere, Category = "Components")
+    USphereComponent * DestroyerSphereComp;
+
+    UFUNCTION()
+    void DestroyerSphereBeginOverlap(UPrimitiveComponent * OverlappedComponent, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
+
+    public :
+    // Called every frame
+    virtual void Tick(float DeltaTime)override;
 };
