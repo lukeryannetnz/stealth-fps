@@ -11,7 +11,7 @@
 // Sets default values
 AFPSBlackHoleActor::AFPSBlackHoleActor()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComp"));
@@ -32,7 +32,6 @@ AFPSBlackHoleActor::AFPSBlackHoleActor()
 void AFPSBlackHoleActor::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
@@ -40,22 +39,23 @@ void AFPSBlackHoleActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	TArray<UPrimitiveComponent*> overlappingComps;
+	TArray<UPrimitiveComponent *> overlappingComps;
 	PhysicsSphereComp->GetOverlappingComponents(overlappingComps);
 
-	for(int i=0; i< overlappingComps.Num(); i++)
+	for (int i = 0; i < overlappingComps.Num(); i++)
 	{
-		UPrimitiveComponent* overlapper = overlappingComps[i];
+		UPrimitiveComponent *overlapper = overlappingComps[i];
 
-		if (overlapper->IsSimulatingPhysics()) {
-             overlapper->AddRadialForce(GetActorLocation(), 1500.0F, -2000.0F, RIF_Constant, true);
-         }
+		if (overlapper->IsSimulatingPhysics())
+		{
+			overlapper->AddRadialForce(GetActorLocation(), 1500.0F, -2000.0F, RIF_Constant, true);
+		}
 	}
 }
 
-void AFPSBlackHoleActor::DestroyerSphereBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
+void AFPSBlackHoleActor::DestroyerSphereBeginOverlap(UPrimitiveComponent *OverlappedComponent, AActor *OtherActor, UPrimitiveComponent *OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
 {
-	if(OtherActor)
+	if (OtherActor)
 	{
 		OtherActor->Destroy();
 	}
