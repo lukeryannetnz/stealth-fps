@@ -1,0 +1,995 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "FPSGame Mac Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"Debug",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame Mac Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"Debug",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame Mac Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame Mac Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"Debug",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame Mac DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"DebugGame",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame Mac DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"DebugGame",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame Mac DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame Mac DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"DebugGame",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame Mac Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"Development",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame Mac Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"Development",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame Mac Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame Mac Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"Development",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame Mac Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"Shipping",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame Mac Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"Shipping",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame Mac Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame Mac Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"Shipping",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame Mac Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"Test",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame Mac Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"Test",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame Mac Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame Mac Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"Mac",
+				"Test",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"Debug",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"Debug",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame IOS Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"Debug",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"DebugGame",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"DebugGame",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame IOS DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"DebugGame",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"Development",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"Development",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame IOS Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"Development",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"Shipping",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"Shipping",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame IOS Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"Shipping",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"Test",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"Test",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame IOS Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame IOS Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"IOS",
+				"Test",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"Debug",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"Debug",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame HTML5 Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"Debug",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"DebugGame",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"DebugGame",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame HTML5 DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"DebugGame",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"Development",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"Development",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame HTML5 Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"Development",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 Shipping Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"Shipping",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 Shipping Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"Shipping",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame HTML5 Shipping Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 Shipping Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"Shipping",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 Test Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"Test",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 Test Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"Test",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGame HTML5 Test Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGame HTML5 Test Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGame",
+				"HTML5",
+				"Test",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGameEditor Mac Debug Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGameEditor",
+				"Mac",
+				"Debug",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGameEditor Mac Debug Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGameEditor",
+				"Mac",
+				"Debug",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGameEditor Mac Debug Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGameEditor Mac Debug Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGameEditor",
+				"Mac",
+				"Debug",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGameEditor Mac DebugGame Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGameEditor",
+				"Mac",
+				"DebugGame",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGameEditor Mac DebugGame Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGameEditor",
+				"Mac",
+				"DebugGame",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGameEditor Mac DebugGame Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGameEditor Mac DebugGame Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGameEditor",
+				"Mac",
+				"DebugGame",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGameEditor Mac Development Build",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGameEditor",
+				"Mac",
+				"Development",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGameEditor Mac Development Rebuild",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGameEditor",
+				"Mac",
+				"Development",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex"
+			],
+			"problemMatcher": "$msCompile",
+			"dependsOn": [
+				"FPSGameEditor Mac Development Clean"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		},
+		{
+			"label": "FPSGameEditor Mac Development Clean",
+			"group": "build",
+			"command": "Engine/Build/BatchFiles/Mac/Build.sh",
+			"args": [
+				"FPSGameEditor",
+				"Mac",
+				"Development",
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject",
+				"-waitmutex",
+				"-clean"
+			],
+			"problemMatcher": "$msCompile",
+			"type": "shell",
+			"options": {
+				"cwd": "/Users/Shared/Epic Games/UE_4.22"
+			}
+		}
+	]
+}

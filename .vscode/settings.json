@@ -1,0 +1,10 @@
+{
+	"files.exclude": {
+		"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/.git": true,
+		"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/.vscode": true,
+		"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/Content": true,
+		"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.xcworkspace": true,
+		"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/Intermediate": true,
+		"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/Saved": true
+	}
+}

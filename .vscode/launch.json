@@ -1,0 +1,104 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "FPSGame (Debug)",
+			"request": "launch",
+			"preLaunchTask": "FPSGame Mac Debug Build",
+			"program": "/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/Binaries/Mac/FPSGame-Mac-Debug.app/Contents/MacOS/FPSGame-Mac-Debug",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.22",
+			"type": "lldb"
+		},
+		{
+			"name": "FPSGame (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "FPSGame Mac DebugGame Build",
+			"program": "/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/Binaries/Mac/FPSGame-Mac-DebugGame.app/Contents/MacOS/FPSGame-Mac-DebugGame",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.22",
+			"type": "lldb"
+		},
+		{
+			"name": "FPSGame (Development)",
+			"request": "launch",
+			"preLaunchTask": "FPSGame Mac Development Build",
+			"program": "/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/Binaries/Mac/FPSGame.app/Contents/MacOS/FPSGame",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.22",
+			"type": "lldb"
+		},
+		{
+			"name": "FPSGame (Shipping)",
+			"request": "launch",
+			"preLaunchTask": "FPSGame Mac Shipping Build",
+			"program": "/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/Binaries/Mac/FPSGame-Mac-Shipping.app/Contents/MacOS/FPSGame-Mac-Shipping",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.22",
+			"type": "lldb"
+		},
+		{
+			"name": "FPSGame (Test)",
+			"request": "launch",
+			"preLaunchTask": "FPSGame Mac Test Build",
+			"program": "/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/Binaries/Mac/FPSGame-Mac-Test.app/Contents/MacOS/FPSGame-Mac-Test",
+			"args": [
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.22",
+			"type": "lldb"
+		},
+		{
+			"name": "FPSGameEditor (Debug)",
+			"request": "launch",
+			"preLaunchTask": "FPSGameEditor Mac Debug Build",
+			"program": "/Users/Shared/Epic Games/UE_4.22/Engine/Binaries/Mac/UE4Editor-Mac-Debug.app/Contents/MacOS/UE4Editor-Mac-Debug",
+			"args": [
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject"
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.22",
+			"type": "lldb"
+		},
+		{
+			"name": "FPSGameEditor (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "FPSGameEditor Mac DebugGame Build",
+			"program": "/Users/Shared/Epic Games/UE_4.22/Engine/Binaries/Mac/UE4Editor.app/Contents/MacOS/UE4Editor",
+			"args": [
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject"
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.22",
+			"type": "lldb"
+		},
+		{
+			"name": "FPSGameEditor (Development)",
+			"request": "launch",
+			"preLaunchTask": "FPSGameEditor Mac Development Build",
+			"program": "/Users/Shared/Epic Games/UE_4.22/Engine/Binaries/Mac/UE4Editor.app/Contents/MacOS/UE4Editor",
+			"args": [
+				"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject"
+			],
+			"cwd": "/Users/Shared/Epic Games/UE_4.22",
+			"type": "lldb"
+		},
+		{
+			"name": "Generate Project Files",
+			"type": "mono",
+			"request": "launch",
+			"program": "/Users/Shared/Epic Games/UE_4.22/Engine/Binaries/DotNET/UnrealBuildTool.exe",
+			"console": "internalConsole",
+			"args": [
+				"-projectfiles",
+				"-vscode",
+				"-project=\"/Users/lukeryan/Dropbox/Luke Documents/dev/unreal-projects/StealthGame 4.22/FPSGame.uproject\"",
+				"-game",
+				"-engine"
+			],
+			"internalConsoleOptions": "openOnSessionStart",
+			"cwd": "/Users/Shared/Epic Games/UE_4.22"
+		}
+	]
+}
