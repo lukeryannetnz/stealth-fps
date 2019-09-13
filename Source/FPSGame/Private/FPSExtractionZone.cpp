@@ -6,6 +6,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "Engine/EngineTypes.h"
 #include "Components/DecalComponent.h"
+#include "FPSCharacter.h"
+#include "FPSGameMode.h"
 
 // Sets default values
 AFPSExtractionZone::AFPSExtractionZone() {
@@ -23,6 +25,18 @@ AFPSExtractionZone::AFPSExtractionZone() {
 	DecalComp->SetupAttachment(RootComponent);
 }
 
-void AFPSExtractionZone::HandleOverlap(UPrimitiveComponent * OverlappedComponent, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult) {
+void AFPSExtractionZone::HandleOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult) {
     UE_LOG(LogTemp, Log, TEXT("Overlapped with extraction zone"));
+
+	AFPSCharacter* MyPawn = Cast<AFPSCharacter>(OtherActor);
+
+	if(MyPawn && MyPawn->bIsCarryingObjective)
+	{
+		AFPSGameMode* Gm = Cast<AFPSGameMode>(GetWorld()->GetAuthGameMode());
+
+		if(Gm)
+		{
+			Gm->CompleteMission(MyPawn);
+		}
+	}
 }
