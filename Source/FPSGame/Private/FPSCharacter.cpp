@@ -6,6 +6,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Components/PawnNoiseEmitterComponent.h"
 
 
 AFPSCharacter::AFPSCharacter() { // Create a CameraComponent
@@ -25,6 +26,8 @@ AFPSCharacter::AFPSCharacter() { // Create a CameraComponent
     GunMeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("FP_Gun"));
     GunMeshComponent->CastShadow = false;
     GunMeshComponent->SetupAttachment(Mesh1PComponent, "GripPoint");
+
+    NoiseEmitterComponent = CreateDefaultSubobject<UPawnNoiseEmitterComponent>(TEXT("NoiseEmitter"));
 }
 
 
