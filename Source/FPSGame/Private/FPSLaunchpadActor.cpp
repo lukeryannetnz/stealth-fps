@@ -10,7 +10,7 @@ AFPSLaunchpadActor::AFPSLaunchpadActor()
 {
 	LaunchComp = CreateDefaultSubobject<UBoxComponent>(TEXT("LaunchComp"));
     LaunchComp->SetGenerateOverlapEvents(true);
-	LaunchComp->SetBoxExtent(FVector(75,75,50));
+	LaunchComp->SetBoxExtent(FVector(100,100,100));
 	RootComponent = LaunchComp;
 
 	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComp"));
