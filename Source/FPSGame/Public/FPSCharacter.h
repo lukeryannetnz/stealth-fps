@@ -13,12 +13,12 @@ class AFPSProjectile;
 class USoundBase;
 class UAnimSequence;
 
-
 UCLASS()
-class AFPSCharacter: public ACharacter {
+class AFPSCharacter: public ACharacter 
+{
     GENERATED_BODY()
 
-    protected :
+protected:
 
     /** Pawn mesh: 1st person view  */
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Mesh")
@@ -32,7 +32,8 @@ class AFPSCharacter: public ACharacter {
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
     UCameraComponent * CameraComponent;
 
-    public : AFPSCharacter();
+public: 
+    AFPSCharacter();
 
     /** Projectile class to spawn */
     UPROPERTY(EditDefaultsOnly, Category = "Projectile")
@@ -48,7 +49,8 @@ class AFPSCharacter: public ACharacter {
 
     UPROPERTY(BlueprintReadOnly, Category = "Gameplay")
     bool bIsCarryingObjective;
-    protected :
+
+protected:
 
     /** Fires a projectile. */
     void Fire();
@@ -61,7 +63,7 @@ class AFPSCharacter: public ACharacter {
 
     virtual void SetupPlayerInputComponent(UInputComponent * InputComponent)override;
 
-    public :
+public:
     /** Returns Mesh1P subobject **/ USkeletalMeshComponent * GetMesh1P()
     const {
         return Mesh1PComponent;
