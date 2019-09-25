@@ -43,5 +43,5 @@ void AFPSAIGuard::PawnSeen(APawn* Pawn)
 
 void AFPSAIGuard::NoiseHeard(APawn* InstigatorPawn, const FVector& Location, float Volume)
 {
-	DrawDebugSphere(GetWorld(), InstigatorPawn->GetActorLocation(), 32.0f, 12, FColor::Yellow, false, 10.0f);
+	DrawDebugSphere(GetWorld(), Location, 32.0f, 12, FColor::Yellow, false, 10.0f);
 }
