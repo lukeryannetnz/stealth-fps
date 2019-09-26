@@ -30,6 +30,12 @@ protected:
 	UFUNCTION()
 	void NoiseHeard(APawn* InstigatorPawn, const FVector& Location, float Volume);
 
+	UFUNCTION()
+	void ResetRotation();
+
+	FRotator OriginalRotation;
+
+	FTimerHandle ResetRotationTimerHandle;
 
 public:	
 	// Called every frame

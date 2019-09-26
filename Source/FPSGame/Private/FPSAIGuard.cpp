@@ -13,20 +13,20 @@ AFPSAIGuard::AFPSAIGuard()
 
 	PawnSensingComp->OnSeePawn.AddDynamic(this, &AFPSAIGuard::PawnSeen);
 	PawnSensingComp->OnHearNoise.AddDynamic(this, &AFPSAIGuard::NoiseHeard);
+
+	OriginalRotation = GetActorRotation();
 }
 
 // Called when the game starts or when spawned
 void AFPSAIGuard::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
 void AFPSAIGuard::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void AFPSAIGuard::PawnSeen(APawn* Pawn)
@@ -44,4 +44,21 @@ void AFPSAIGuard::PawnSeen(APawn* Pawn)
 void AFPSAIGuard::NoiseHeard(APawn* InstigatorPawn, const FVector& Location, float Volume)
 {
 	DrawDebugSphere(GetWorld(), Location, 32.0f, 12, FColor::Yellow, false, 10.0f);
+
+	FVector Direction = Location - GetActorLocation();
+	Direction.Normalize();
+	
+	FRotator NewDirection = FRotationMatrix::MakeFromX(Direction).Rotator();
+	NewDirection.Pitch = 0.0f;
+	NewDirection.Roll = 0.0f;
+
+	SetActorRotation(NewDirection);
+
+	GetWorldTimerManager().ClearTimer(ResetRotationTimerHandle);
+	GetWorldTimerManager().SetTimer(ResetRotationTimerHandle, this, &AFPSAIGuard::ResetRotation, 3.0f);
+}
+
+void AFPSAIGuard::ResetRotation()
+{
+	SetActorRotation(OriginalRotation);
 }
