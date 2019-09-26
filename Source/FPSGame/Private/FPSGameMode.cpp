@@ -14,7 +14,7 @@ AFPSGameMode::AFPSGameMode() { // set default pawn class to our Blueprinted char
     HUDClass = AFPSHUD::StaticClass();
 }
 
-void AFPSGameMode::CompleteMission(APawn* InstigatorPawn) {
+void AFPSGameMode::CompleteMission(APawn* InstigatorPawn, bool IsSuccess) {
 	if(InstigatorPawn)
 	{
 		InstigatorPawn->DisableInput(nullptr);
@@ -43,5 +43,5 @@ void AFPSGameMode::CompleteMission(APawn* InstigatorPawn) {
 		}
 	}
 
-	OnMissionCompleted(InstigatorPawn);
+	OnMissionCompleted(InstigatorPawn, IsSuccess);
 }

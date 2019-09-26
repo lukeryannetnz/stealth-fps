@@ -41,7 +41,7 @@ void AFPSExtractionZone::HandleOverlap(UPrimitiveComponent* OverlappedComponent,
 
 		if(Gm)
 		{
-			Gm->CompleteMission(MyPawn);
+			Gm->CompleteMission(MyPawn, true);
 		}
 	}
 	else
