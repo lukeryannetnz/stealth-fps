@@ -18,18 +18,14 @@ AFPSAIGuard::AFPSAIGuard()
 	OriginalRotation = GetActorRotation();
 
 	GuardState = EAIState::Idle;
+
+	IsOnPatrol = false;
 }
 
 // Called when the game starts or when spawned
 void AFPSAIGuard::BeginPlay()
 {
 	Super::BeginPlay();
-}
-
-// Called every frame
-void AFPSAIGuard::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
 }
 
 void AFPSAIGuard::PawnSeen(APawn* Pawn)

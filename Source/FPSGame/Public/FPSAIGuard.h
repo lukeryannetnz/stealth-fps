@@ -34,6 +34,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UPawnSensingComponent* PawnSensingComp;
 
+	UPROPERTY(EditInstanceOnly, Category = "AI")
+	bool IsOnPatrol;
+
 	UFUNCTION()
 	void PawnSeen(APawn* Pawn);
 
@@ -54,8 +57,4 @@ protected:
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "AI")
 	void OnGuardStateChange(EAIState NewState);
-
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 };
