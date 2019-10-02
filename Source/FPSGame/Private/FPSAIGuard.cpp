@@ -16,6 +16,8 @@ AFPSAIGuard::AFPSAIGuard()
 	PawnSensingComp->OnHearNoise.AddDynamic(this, &AFPSAIGuard::NoiseHeard);
 
 	OriginalRotation = GetActorRotation();
+
+	GuardState = EAIState::Idle;
 }
 
 // Called when the game starts or when spawned
@@ -33,6 +35,7 @@ void AFPSAIGuard::Tick(float DeltaTime)
 void AFPSAIGuard::PawnSeen(APawn* Pawn)
 {
 	UE_LOG(LogTemp, Log, TEXT("Pawn seen by guard!"));
+	SetGuardState(EAIState::Alerted);
 
 	if(Pawn == nullptr)
 	{
@@ -51,6 +54,13 @@ void AFPSAIGuard::PawnSeen(APawn* Pawn)
 
 void AFPSAIGuard::NoiseHeard(APawn* InstigatorPawn, const FVector& Location, float Volume)
 {
+	if(GuardState == EAIState::Alerted)
+	{
+		return;
+	}
+
+	SetGuardState(EAIState::Suspicious);
+
 	DrawDebugSphere(GetWorld(), Location, 32.0f, 12, FColor::Yellow, false, 10.0f);
 
 	FVector Direction = Location - GetActorLocation();
@@ -68,5 +78,23 @@ void AFPSAIGuard::NoiseHeard(APawn* InstigatorPawn, const FVector& Location, flo
 
 void AFPSAIGuard::ResetRotation()
 {
+	if(GuardState == EAIState::Alerted)
+	{
+		return;
+	}
+
+	SetGuardState(EAIState::Idle);
 	SetActorRotation(OriginalRotation);
+}
+
+void AFPSAIGuard::SetGuardState(EAIState NewState)
+{
+	if(NewState == GuardState)
+	{
+		return;
+	}
+
+	GuardState = NewState;
+
+	OnGuardStateChange(GuardState);
 }
