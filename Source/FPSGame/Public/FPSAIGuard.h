@@ -7,6 +7,7 @@
 #include "FPSAIGuard.generated.h"
 
 class UPawnSensingComponent;
+class ATargetPoint;
 
 UENUM(BlueprintType)
 enum class EAIState : uint8
@@ -57,4 +58,10 @@ protected:
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "AI")
 	void OnGuardStateChange(EAIState NewState);
+
+	UFUNCTION()
+	void BeginPatrol();
+
+	UPROPERTY(EditInstanceOnly, Category = "AI")
+	ATargetPoint* FirstPatrolPoint;
 };

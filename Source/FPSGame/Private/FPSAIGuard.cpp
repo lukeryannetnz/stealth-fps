@@ -3,6 +3,8 @@
 #include "Perception/PawnSensingComponent.h"
 #include "DrawDebugHelpers.h"
 #include "FPSGameMode.h"
+#include "AIController.h"
+#include "Engine/TargetPoint.h"
 
 // Sets default values
 AFPSAIGuard::AFPSAIGuard()
@@ -26,6 +28,18 @@ AFPSAIGuard::AFPSAIGuard()
 void AFPSAIGuard::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if(IsOnPatrol)
+	{
+		BeginPatrol();
+	}
+}
+
+void AFPSAIGuard::BeginPatrol()
+{
+	AAIController* AI = Cast<AAIController>(GetController());
+
+	AI->MoveToActor(FirstPatrolPoint);
 }
 
 void AFPSAIGuard::PawnSeen(APawn* Pawn)
