@@ -37,10 +37,30 @@ void AFPSAIGuard::BeginPlay()
 
 void AFPSAIGuard::BeginPatrol()
 {
+	CurrentPatrolPointIndex = 0;
 	AAIController* AI = Cast<AAIController>(GetController());
+	AI->MoveToActor(PatrolPoints[CurrentPatrolPointIndex]);
 
-	AI->MoveToActor(FirstPatrolPoint);
+	GetWorldTimerManager().ClearTimer(PatrolTimerHandle);
+	GetWorldTimerManager().SetTimer(PatrolTimerHandle, this, &AFPSAIGuard::OnPatrolPointChange, 3.0f);
 }
+
+void AFPSAIGuard::OnPatrolPointChange()
+{
+	if(CurrentPatrolPointIndex >= PatrolPoints.Num() - 1)
+	{
+		CurrentPatrolPointIndex = 0;
+	}
+	else
+	{
+		CurrentPatrolPointIndex++;
+	}
+	AAIController* AI = Cast<AAIController>(GetController());
+	AI->MoveToActor(PatrolPoints[CurrentPatrolPointIndex]);
+
+	GetWorldTimerManager().SetTimer(PatrolTimerHandle, this, &AFPSAIGuard::OnPatrolPointChange, 3.0f);
+}
+
 
 void AFPSAIGuard::PawnSeen(APawn* Pawn)
 {

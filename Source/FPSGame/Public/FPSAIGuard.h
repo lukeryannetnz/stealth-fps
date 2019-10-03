@@ -50,6 +50,8 @@ protected:
 	FRotator OriginalRotation;
 
 	FTimerHandle ResetRotationTimerHandle;
+		
+	FTimerHandle PatrolTimerHandle;
 
 	EAIState GuardState;
 
@@ -62,6 +64,11 @@ protected:
 	UFUNCTION()
 	void BeginPatrol();
 
+	UFUNCTION()
+	void OnPatrolPointChange();
+
 	UPROPERTY(EditInstanceOnly, Category = "AI")
-	ATargetPoint* FirstPatrolPoint;
+	TArray<ATargetPoint*> PatrolPoints;
+
+	int CurrentPatrolPointIndex;
 };
