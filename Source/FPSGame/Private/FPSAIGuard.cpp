@@ -22,7 +22,7 @@ AFPSAIGuard::AFPSAIGuard()
 
 	GuardState = EAIState::Idle;
 
-	AAIController* AI = Cast<AAIController>(GetController());
+	AI = Cast<AAIController>(GetController());
 	AI->ReceiveMoveCompleted.AddDynamic(this, &AFPSAIGuard::MoveCompleted);
 	IsOnPatrol = false;
 }
@@ -58,7 +58,7 @@ void AFPSAIGuard::MoveCompleted(FAIRequestID RequestID, EPathFollowingResult::Ty
 	{
 		CurrentPatrolPointIndex++;
 	}
-	
+
 	AI->MoveToActor(PatrolPoints[CurrentPatrolPointIndex]);
 }
 
