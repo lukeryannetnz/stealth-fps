@@ -7,6 +7,7 @@
 #include "Navigation/PathFollowingComponent.h"
 #include "FPSAIGuard.generated.h"
 
+struct FAIRequestID;
 class UPawnSensingComponent;
 class ATargetPoint;
 class AAIController;
@@ -64,7 +65,6 @@ protected:
 	UFUNCTION()
 	void BeginPatrol();
 
-	UFUNCTION()
 	void MoveCompleted(FAIRequestID RequestID, EPathFollowingResult::Type Result);
 
 	UPROPERTY(EditInstanceOnly, Category = "AI")
