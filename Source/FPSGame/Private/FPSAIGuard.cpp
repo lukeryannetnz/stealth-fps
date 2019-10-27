@@ -19,17 +19,15 @@ AFPSAIGuard::AFPSAIGuard()
 	PawnSensingComp->OnHearNoise.AddDynamic(this, &AFPSAIGuard::NoiseHeard);
 
 	OriginalRotation = GetActorRotation();
-
 	GuardState = EAIState::Idle;
-
-	AI = Cast<AAIController>(GetController());
-	AI->ReceiveMoveCompleted.AddDynamic(this, &AFPSAIGuard::MoveCompleted);
 	IsOnPatrol = false;
 }
 
 // Called when the game starts or when spawned
 void AFPSAIGuard::BeginPlay()
 {
+	AI = Cast<AAIController>(GetController());
+	AI->ReceiveMoveCompleted.AddDynamic(this, &AFPSAIGuard::MoveCompleted);
 	Super::BeginPlay();
 	BeginPatrol();
 }
@@ -59,7 +57,10 @@ void AFPSAIGuard::MoveCompleted(FAIRequestID RequestID, EPathFollowingResult::Ty
 		CurrentPatrolPointIndex++;
 	}
 
-	AI->MoveToActor(PatrolPoints[CurrentPatrolPointIndex]);
+	if(GuardState == EAIState::Idle)
+	{
+		AI->MoveToActor(PatrolPoints[CurrentPatrolPointIndex]);
+	}
 }
 
 void AFPSAIGuard::PawnSeen(APawn* Pawn)
