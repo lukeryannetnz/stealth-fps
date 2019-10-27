@@ -65,6 +65,7 @@ protected:
 	UFUNCTION()
 	void BeginPatrol();
 
+	UFUNCTION()
 	void MoveCompleted(FAIRequestID RequestID, EPathFollowingResult::Type Result);
 
 	UPROPERTY(EditInstanceOnly, Category = "AI")
