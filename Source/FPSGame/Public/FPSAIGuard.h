@@ -4,10 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Navigation/PathFollowingComponent.h"
 #include "FPSAIGuard.generated.h"
 
 class UPawnSensingComponent;
 class ATargetPoint;
+class AAIController;
 
 UENUM(BlueprintType)
 enum class EAIState : uint8
@@ -50,8 +52,6 @@ protected:
 	FRotator OriginalRotation;
 
 	FTimerHandle ResetRotationTimerHandle;
-		
-	FTimerHandle PatrolTimerHandle;
 
 	EAIState GuardState;
 
@@ -65,10 +65,14 @@ protected:
 	void BeginPatrol();
 
 	UFUNCTION()
-	void OnPatrolPointChange();
+	void MoveCompleted(FAIRequestID RequestID, EPathFollowingResult::Type Result);
 
 	UPROPERTY(EditInstanceOnly, Category = "AI")
 	TArray<ATargetPoint*> PatrolPoints;
 
 	int CurrentPatrolPointIndex;
+
+	void StopPatrol();
+
+	AAIController* AI;
 };

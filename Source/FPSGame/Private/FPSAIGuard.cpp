@@ -5,6 +5,7 @@
 #include "FPSGameMode.h"
 #include "AIController.h"
 #include "Engine/TargetPoint.h"
+#include "Navigation/PathFollowingComponent.h"
 
 // Sets default values
 AFPSAIGuard::AFPSAIGuard()
@@ -21,6 +22,8 @@ AFPSAIGuard::AFPSAIGuard()
 
 	GuardState = EAIState::Idle;
 
+	AAIController* AI = Cast<AAIController>(GetController());
+	AI->ReceiveMoveCompleted.AddDynamic(this, &AFPSAIGuard::MoveCompleted);
 	IsOnPatrol = false;
 }
 
@@ -28,24 +31,24 @@ AFPSAIGuard::AFPSAIGuard()
 void AFPSAIGuard::BeginPlay()
 {
 	Super::BeginPlay();
-
-	if(IsOnPatrol)
-	{
-		BeginPatrol();
-	}
+	BeginPatrol();
 }
 
 void AFPSAIGuard::BeginPatrol()
 {
-	CurrentPatrolPointIndex = 0;
-	AAIController* AI = Cast<AAIController>(GetController());
-	AI->MoveToActor(PatrolPoints[CurrentPatrolPointIndex]);
-
-	GetWorldTimerManager().ClearTimer(PatrolTimerHandle);
-	GetWorldTimerManager().SetTimer(PatrolTimerHandle, this, &AFPSAIGuard::OnPatrolPointChange, 3.0f);
+	if(IsOnPatrol)
+	{
+		CurrentPatrolPointIndex = 0;
+		AI->MoveToActor(PatrolPoints[CurrentPatrolPointIndex]);
+	}
 }
 
-void AFPSAIGuard::OnPatrolPointChange()
+void AFPSAIGuard::StopPatrol()
+{
+	AI->StopMovement();
+}
+
+void AFPSAIGuard::MoveCompleted(FAIRequestID RequestID, EPathFollowingResult::Type Result)
 {
 	if(CurrentPatrolPointIndex >= PatrolPoints.Num() - 1)
 	{
@@ -55,12 +58,9 @@ void AFPSAIGuard::OnPatrolPointChange()
 	{
 		CurrentPatrolPointIndex++;
 	}
-	AAIController* AI = Cast<AAIController>(GetController());
+	
 	AI->MoveToActor(PatrolPoints[CurrentPatrolPointIndex]);
-
-	GetWorldTimerManager().SetTimer(PatrolTimerHandle, this, &AFPSAIGuard::OnPatrolPointChange, 3.0f);
 }
-
 
 void AFPSAIGuard::PawnSeen(APawn* Pawn)
 {
@@ -80,6 +80,7 @@ void AFPSAIGuard::PawnSeen(APawn* Pawn)
 	{
 		Gm->CompleteMission(Pawn, false);
 	}
+	StopPatrol();
 }
 
 void AFPSAIGuard::NoiseHeard(APawn* InstigatorPawn, const FVector& Location, float Volume)
@@ -104,6 +105,7 @@ void AFPSAIGuard::NoiseHeard(APawn* InstigatorPawn, const FVector& Location, flo
 
 	GetWorldTimerManager().ClearTimer(ResetRotationTimerHandle);
 	GetWorldTimerManager().SetTimer(ResetRotationTimerHandle, this, &AFPSAIGuard::ResetRotation, 3.0f);
+	StopPatrol();
 }
 
 void AFPSAIGuard::ResetRotation()
@@ -115,6 +117,7 @@ void AFPSAIGuard::ResetRotation()
 
 	SetGuardState(EAIState::Idle);
 	SetActorRotation(OriginalRotation);
+	BeginPatrol();
 }
 
 void AFPSAIGuard::SetGuardState(EAIState NewState)
