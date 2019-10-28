@@ -27,14 +27,17 @@ AFPSAIGuard::AFPSAIGuard()
 void AFPSAIGuard::BeginPlay()
 {
 	AI = Cast<AAIController>(GetController());
-	AI->ReceiveMoveCompleted.AddDynamic(this, &AFPSAIGuard::MoveCompleted);
+	if(AI)
+	{
+		AI->ReceiveMoveCompleted.AddDynamic(this, &AFPSAIGuard::MoveCompleted);
+	}
 	Super::BeginPlay();
 	BeginPatrol();
 }
 
 void AFPSAIGuard::BeginPatrol()
 {
-	if(IsOnPatrol)
+	if(IsOnPatrol && AI)
 	{
 		CurrentPatrolPointIndex = 0;
 		AI->MoveToActor(PatrolPoints[CurrentPatrolPointIndex]);
@@ -43,7 +46,10 @@ void AFPSAIGuard::BeginPatrol()
 
 void AFPSAIGuard::StopPatrol()
 {
-	AI->StopMovement();
+	if(AI)
+	{
+		AI->StopMovement();
+	}
 }
 
 void AFPSAIGuard::MoveCompleted(FAIRequestID RequestID, EPathFollowingResult::Type Result)
