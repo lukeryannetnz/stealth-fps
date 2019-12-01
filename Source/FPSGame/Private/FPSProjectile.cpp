@@ -28,6 +28,10 @@ AFPSProjectile::AFPSProjectile() { // Use a sphere as a simple collision represe
 
     // Die after 3 seconds by default
     InitialLifeSpan = 3.0f;
+
+    // replicate from server to client for multiplayer.
+    SetReplicates(true);
+    SetReplicateMovement(true);
 }
 
 
@@ -36,7 +40,10 @@ void AFPSProjectile::OnHit(UPrimitiveComponent * HitComp, AActor * OtherActor, U
         OtherComp -> AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
     }
 
-    MakeNoise(1.0f, Instigator);
-    Destroy();
-
+    // only run this code on the server as that is where the AI logic runs
+    if(Role == ROLE_Authority)
+    {
+        MakeNoise(1.0f, Instigator);
+        Destroy();
+    }
 }
