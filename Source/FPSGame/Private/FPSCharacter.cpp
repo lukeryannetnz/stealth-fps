@@ -95,3 +95,24 @@ void AFPSCharacter::MoveRight(float Value) {
         AddMovementInput(GetActorRightVector(), Value);
     }
 }
+
+void AFPSCharacter::Tick(float DeltaTime) {
+    Super::Tick(DeltaTime);
+
+    if(!IsLocallyControlled()) 
+    {
+        ApplyRemotePitch();
+    }
+}
+
+///
+/// Applies the remote pitch to the local camera component.
+/// Unreal doesn't do this automatically for some reason.
+///
+void AFPSCharacter::ApplyRemotePitch()
+{
+    FRotator rotator = CameraComponent->RelativeRotation;
+    rotator.Pitch = RemoteViewPitch * 360.0f / 255.0f; //divide by degrees, multiply by 255 (max value of uint8 which is the type of RemoteViewPitch). This is the opposite of what the code that sets this value does.
+
+    CameraComponent->SetRelativeRotation(rotator);    
+}

@@ -70,6 +70,10 @@ protected:
 
     virtual void SetupPlayerInputComponent(UInputComponent * InputComponent)override;
 
+    void Tick(float DeltaTime);
+
+    void ApplyRemotePitch();
+
 public:
     /** Returns Mesh1P subobject **/ USkeletalMeshComponent * GetMesh1P()
     const {
