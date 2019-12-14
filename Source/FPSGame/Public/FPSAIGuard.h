@@ -58,7 +58,7 @@ protected:
 	EAIState GuardState;
 
 	UFUNCTION()
-	void OnRep_GuardState(); 
+	void OnRep_GuardState(); 
 
 	UFUNCTION()
 	void SetGuardState(EAIState NewState);

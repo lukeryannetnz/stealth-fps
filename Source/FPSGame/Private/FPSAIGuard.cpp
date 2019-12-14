@@ -131,7 +131,7 @@ void AFPSAIGuard::ResetRotation()
 ///
 /// Called on clients (not the server) when the guard state variable is changed.
 ///
-void AFPSAIGuard::OnRep_GuardState()
+void AFPSAIGuard::OnRep_GuardState()
 {
 	// trigger blueprint animation
 	OnGuardStateChange(GuardState);
