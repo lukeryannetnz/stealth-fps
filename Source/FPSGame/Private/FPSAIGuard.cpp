@@ -6,6 +6,7 @@
 #include "AIController.h"
 #include "Engine/TargetPoint.h"
 #include "Navigation/PathFollowingComponent.h"
+#include "net/UnrealNetwork.h"
 
 // Sets default values
 AFPSAIGuard::AFPSAIGuard()
@@ -127,6 +128,15 @@ void AFPSAIGuard::ResetRotation()
 	BeginPatrol();
 }
 
+///
+/// Called on clients (not the server) when the guard state variable is changed.
+///
+void AFPSAIGuard::OnRep_GuardState()
+{
+	// trigger blueprint animation
+	OnGuardStateChange(GuardState);
+};
+
 void AFPSAIGuard::SetGuardState(EAIState NewState)
 {
 	if(NewState == GuardState)
@@ -136,5 +146,18 @@ void AFPSAIGuard::SetGuardState(EAIState NewState)
 
 	GuardState = NewState;
 
-	OnGuardStateChange(GuardState);
+	// This function is likely running on a server so replication won't trigger automatically, so call it to
+	// trigger blueprint animation in the case that the server is also a client.
+	OnRep_GuardState();
+}
+
+///
+/// Set up replication of properties from server to client.
+///
+void AFPSAIGuard::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	// replicate GuardState
+	DOREPLIFETIME(AFPSAIGuard, GuardState);
 }

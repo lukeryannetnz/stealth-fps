@@ -112,7 +112,7 @@ void AFPSCharacter::Tick(float DeltaTime) {
 void AFPSCharacter::ApplyRemotePitch()
 {
     FRotator rotator = CameraComponent->RelativeRotation;
-    rotator.Pitch = RemoteViewPitch * 360.0f / 255.0f; //divide by degrees, multiply by 255 (max value of uint8 which is the type of RemoteViewPitch). This is the opposite of what the code that sets this value does.
+    rotator.Pitch = RemoteViewPitch * 360.0f / 255.0f; //divide by degrees, multiply by 255 (max value of uint8 which is the type of RemoteViewPitch    ). This is the opposite of what the code that sets this value does.
 
     CameraComponent->SetRelativeRotation(rotator);    
 }
