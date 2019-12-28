@@ -7,7 +7,7 @@
 #include "Components/CapsuleComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/PawnNoiseEmitterComponent.h"
-
+#include "net/UnrealNetwork.h"
 
 AFPSCharacter::AFPSCharacter() { // Create a CameraComponent
     CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FirstPersonCamera"));
@@ -115,4 +115,15 @@ void AFPSCharacter::ApplyRemotePitch()
     rotator.Pitch = RemoteViewPitch * 360.0f / 255.0f; //divide by degrees, multiply by 255 (max value of uint8 which is the type of RemoteViewPitch    ). This is the opposite of what the code that sets this value does.
 
     CameraComponent->SetRelativeRotation(rotator);    
+}
+
+///
+/// Set up replication of properties from server to client.
+///
+void AFPSCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	// replicate objective
+	DOREPLIFETIME(AFPSCharacter, bIsCarryingObjective);
 }

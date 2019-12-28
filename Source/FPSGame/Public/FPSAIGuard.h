@@ -54,7 +54,7 @@ protected:
 
 	FTimerHandle ResetRotationTimerHandle;
 
-	UPROPERTY(ReplcatedUsing=OnRep_GuardState)
+	UPROPERTY(ReplicatedUsing=OnRep_GuardState)
 	EAIState GuardState;
 
 	UFUNCTION()
