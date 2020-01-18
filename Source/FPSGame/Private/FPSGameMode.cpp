@@ -1,6 +1,7 @@
 // Copyright 1998-2017 Epic Games, Inc. All Rights Reserved.
 
 #include "FPSGameMode.h"
+#include "FPSGameState.h"
 #include "FPSHUD.h"
 #include "FPSCharacter.h"
 #include "UObject/ConstructorHelpers.h"
@@ -12,13 +13,12 @@ AFPSGameMode::AFPSGameMode() { // set default pawn class to our Blueprinted char
 
     // use our custom HUD class
     HUDClass = AFPSHUD::StaticClass();
+	GameStateClass = AFPSGameState::StaticClass();
 }
 
 void AFPSGameMode::CompleteMission(APawn* InstigatorPawn, bool IsSuccess) {
 	if(InstigatorPawn)
 	{
-		InstigatorPawn->DisableInput(nullptr);
-
 		if(SpectatingViewpointClass)
 		{
 			AActor* NewViewTarget = nullptr;
@@ -41,6 +41,12 @@ void AFPSGameMode::CompleteMission(APawn* InstigatorPawn, bool IsSuccess) {
 		{
 			UE_LOG(LogTemp, Warning, TEXT("SpectatingViewpointClass not set."))
 		}
+	}
+
+	AFPSGameState* GS = GetGameState<AFPSGameState>();
+	if(GS)
+	{
+		GS->MulticastOnMissionCompleted(InstigatorPawn, IsSuccess);
 	}
 
 	OnMissionCompleted(InstigatorPawn, IsSuccess);

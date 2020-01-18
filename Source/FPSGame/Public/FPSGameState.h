@@ -13,5 +13,9 @@ UCLASS()
 class FPSGAME_API AFPSGameState : public AGameStateBase
 {
 	GENERATED_BODY()
-	
+
+public:
+
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastOnMissionCompleted(APawn* InstigatorPawn, bool bMissionSuccess);
 };
