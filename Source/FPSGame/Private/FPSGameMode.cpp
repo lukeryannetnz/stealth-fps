@@ -30,10 +30,15 @@ void AFPSGameMode::CompleteMission(APawn* InstigatorPawn, bool IsSuccess) {
 			{
 				NewViewTarget = ReturnedActors[0];
 
-				APlayerController* PC = Cast<APlayerController>(InstigatorPawn->GetController());
-				if(PC)
+				for(FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator(); It; It++)
 				{
-					PC->SetViewTargetWithBlend(NewViewTarget, 0.5f, EViewTargetBlendFunction::VTBlend_Cubic);
+					APlayerController* PC = It->Get();
+					// zoom the camera out on all player controllers
+					if(PC)
+					{
+						// this runs on the server, but this method will be replicated to clients
+						PC->SetViewTargetWithBlend(NewViewTarget, 0.5f, EViewTargetBlendFunction::VTBlend_Cubic);
+					}
 				}
 			}
 		}
