@@ -7,7 +7,7 @@
 #include "FPSPlayerController.generated.h"
 
 /**
- * Player controller exists on the client that has the player controller, and the server.
+ * Player controller exists on tlche client that has the player controller, and the server.
  */
 UCLASS()
 class FPSGAME_API AFPSPlayerController : public APlayerController

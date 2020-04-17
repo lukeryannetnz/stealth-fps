@@ -3,7 +3,3 @@
 
 #include "FPSPlayerController.h"
 
-void AFPSPlayerController::OnMissionCompleted(APawn* InstigatorPawn, bool IsSuccess)
-{
-
-}
