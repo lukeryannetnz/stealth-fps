@@ -2,15 +2,26 @@
 
 
 #include "FPSGameState.h"
+#include "FPSPlayerController.h"
 
 void AFPSGameState::MulticastOnMissionCompleted_Implementation(APawn* InstigatorPawn, bool bMissionSuccess)
 {
-    for(FConstPawnIterator It = GetWorld()->GetPawnIterator(); It; It++)
+    for(FConstPlayerControllerIterator It = GetWorld()->GetPlayerControllerIterator(); It; It++)
     {
-        APawn* Pawn = It->Get();
-        if(Pawn && Pawn->IsLocallyControlled())
+        AFPSPlayerController* PC = Cast<AFPSPlayerController>(It->Get());
+
+        // this function runs on the client and server, so check that this is local
+        if(PC && PC->IsLocalController())
         {
-            Pawn->DisableInput(nullptr);
+            // show the overlay on the hud
+            PC->OnMissionCompleted(InstigatorPawn, bMissionSuccess);
+
+            // disable the input
+            APawn* Pawn = PC->GetPawn();
+            if(Pawn)
+            {
+                Pawn->DisableInput(PC);
+            }
         }
     }
 }
